@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cristian Tufisi - Professional CV</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
+        
+        :root {
+            --primary-color: #2a4365;
+            --secondary-color: #4299e1;
+            --accent-color: #f56565;
+            --light-bg: #f7fafc;
+            --dark-text: #2d3748;
+            --light-text: #4a5568;
+            --sidebar-bg: #2a4365;
+            --sidebar-text: #ebf8ff;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            color: var(--dark-text);
+            margin: 0;
+            padding: 0;
+            background-color: #f5f5f5;
+        }
+        
+        .cv-container {
+            max-width: 1000px;
+            margin: 30px auto;
+            display: flex;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            border-radius: 8px;
+        }
+        
+        /* Left Sidebar */
+        .sidebar {
+            width: 35%;
+            background: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 40px 30px;
+        }
+        
+        .photo-container {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 30px;
+            border: 4px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #777;
+            font-size: 14px;
+        }
+        
+        .name {
+            font-family: 'Playfair Display', serif;
+            font-size: 28px;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 10px;
+            letter-spacing: 0.5px;
+        }
+        
+        .title {
+            font-size: 16px;
+            text-align: center;
+            font-weight: 400;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .sidebar-section {
+            margin-bottom: 30px;
+        }
+        
+        .sidebar-section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .sidebar-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary-color);
+        }
+        
+        .contact-info {
+            margin-bottom: 25px;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: flex-start;
+            margin-bottom: 12px;
+            font-size: 14px;
+        }
+        
+        .contact-item i {
+            margin-right: 10px;
+            margin-top: 3px;
+            color: var(--secondary-color);
+        }
+        
+        .personal-details {
+            font-size: 14px;
+        }
+        
+        .personal-details p {
+            margin-bottom: 8px;
+        }
+        
+        .skills-list {
+            margin-top: 15px;
+        }
+        
+        .skill-item {
+            margin-bottom: 15px;
+        }
+        
+        .skill-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+            display: flex;
+            justify-content: space-between;
+        }
+        
+        .skill-bar {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 3px;
+            overflow: hidden;
+        }
+        
+        .skill-level {
+            height: 100%;
+            background: var(--secondary-color);
+            border-radius: 3px;
+        }
+        
+        .language-item {
+            margin-bottom: 12px;
+        }
+        
+        .language-name {
+            font-weight: 500;
+            margin-bottom: 5px;
+        }
+        
+        /* Main Content */
+        .main-content {
+            width: 65%;
+            background: white;
+            padding: 40px;
+        }
+        
+        .section {
+            margin-bottom: 35px;
+        }
+        
+        .section h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 22px;
+            font-weight: 600;
+            color: var(--primary-color);
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 8px;
+        }
+        
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--accent-color);
+        }
+        
+        .job, .education-item {
+            margin-bottom: 25px;
+        }
+        
+        .job-header, .education-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 5px;
+        }
+        
+        .job-title, .education-title {
+            font-weight: 600;
+            color: var(--primary-color);
+            font-size: 17px;
+        }
+        
+        .job-date, .education-date {
+            color: var(--light-text);
+            font-size: 14px;
+        }
+        
+        .company, .university {
+            font-weight: 500;
+            color: var(--secondary-color);
+            margin-bottom: 8px;
+            font-size: 15px;
+        }
+        
+        .job-description, .education-description {
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        
+        li {
+            margin-bottom: 8px;
+            font-size: 14px;
+            color: var(--light-text);
+        }
+        
+        .publication {
+            font-size: 13px;
+            padding: 10px;
+            background: var(--light-bg);
+            border-left: 3px solid var(--secondary-color);
+            margin-bottom: 10px;
+        }
+        
+        .download-btn {
+            display: block;
+            width: 200px;
+            margin: 40px auto 0;
+            padding: 12px;
+            background-color: var(--primary-color);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+            font-family: 'Montserrat', sans-serif;
+        }
+        
+        .download-btn:hover {
+            background-color: var(--secondary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media print {
+            .download-btn {
+                display: none;
+            }
+            
+            body {
+                background: none;
+            }
+            
+            .cv-container {
+                box-shadow: none;
+                margin: 0;
+                max-width: 100%;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .cv-container {
+                flex-direction: column;
+            }
+            
+            .sidebar, .main-content {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="cv-container">
+        <!-- Left Sidebar -->
+        <div class="sidebar">
+            <div class="photo-container">
+                <div class="photo-placeholder">
+                    [Your Photo Here]
+                    <!-- Replace with: <img src="your-photo.jpg" alt="Cristian Tufisi"> -->
+                </div>
+            </div>
+            
+            <h1 class="name">Cristian Tufisi</h1>
+            <div class="title">Lecturer | Researcher | Mechanical Engineer</div>
+            
+            <div class="sidebar-section">
+                <h2>Contact</h2>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i>📍</i>
+                        <span>str. Gratz, bl. 4, sc. 3, ap. 1, Reșița, 320119, Romania</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>📞</i>
+                        <span>(+40) 734052036</span>
+                    </div>
+                    <div class="contact-item">
+                        <i>✉️</i>
+                        <span>cristiantufisi@yahoo.com</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Personal Details</h2>
+                <div class="personal-details">
+                    <p><strong>Sex:</strong> Male</p>
+                    <p><strong>Date of birth:</strong> 14/01/1988</p>
+                    <p><strong>Nationality:</strong> Romanian</p>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Skills</h2>
+                <div class="skills-list">
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Mechanical Design</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Research & Development</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 90%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>CAD Software</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 95%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Finite Element Analysis</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 85%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Project Management</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 80%"></div>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-name">
+                            <span>Machine Learning</span>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-level" style="width: 75%"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Languages</h2>
+                <div class="language-item">
+                    <div class="language-name">Romanian (Native)</div>
+                </div>
+                <div class="language-item">
+                    <div class="language-name">English (C1)</div>
+                </div>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Digital Skills</h2>
+                <ul>
+                    <li>Microsoft Office Suite</li>
+                    <li>AutoCAD, SolidWorks, SolidEdge, SolidCAM</li>
+                    <li>ANSYS, Mathcad, MagmaSoft</li>
+                    <li>C# Programming (basic)</li>
+                    <li>SAP ERP</li>
+                    <li>WordPress, HTML/CSS</li>
+                </ul>
+            </div>
+            
+            <div class="sidebar-section">
+                <h2>Driving License</h2>
+                <p>Category B</p>
+            </div>
+        </div>
+        
+        <!-- Main Content -->
+        <div class="main-content">
+            <div class="section">
+                <h2>Professional Profile</h2>
+                <p>Experienced Lecturer and Mechanical Engineer with extensive background in both academia and industry. Proven track record in research, mechanical design, finite element analysis, and project management. Strong communication and organizational skills developed through teaching, research projects, and industrial experience.</p>
+            </div>
+            
+            <div class="section">
+                <h2>Work Experience</h2>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Lecturer</div>
+                        <div class="job-date">Sep 2021 - Present</div>
+                    </div>
+                    <div class="company">Babeș-Bolyai University, Faculty of Engineering</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Teaching activities including courses, laboratory sessions, seminars, and student project supervision</li>
+                            <li>Active participation in conferences and symposia</li>
+                            <li>Engagement in scientific research</li>
+                            <li>Business sector: Education</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Principal Investigator – Research Grant</div>
+                        <div class="job-date">Jul 2023 - Jun 2024</div>
+                    </div>
+                    <div class="company">UBB Starting Research Grants</div>
+                    <div class="job-description">
+                        <p><strong>Project:</strong> Development and Evaluation of a Wearable Sensor-Based System for Fall Detection</p>
+                        <p><strong>Funding:</strong> 50,000 RON</p>
+                        <div class="publication">
+                            <strong>Publication:</strong> Tufisi, C.; Praisach, Z.-I.; Gillich, G.-R.; Bichescu, A.I.; Heler, T.-L. Forward Fall Detection Using Inertial Data and Machine Learning. Applied Sciences, 2024, 14, 10552. https://doi.org/10.3390/app142210552
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Grant Director</div>
+                        <div class="job-date">Oct 2021 - Jan 2023</div>
+                    </div>
+                    <div class="company">International Bank for Reconstruction and Development</div>
+                    <div class="job-description">
+                        <p><strong>Project:</strong> SCOPA – An Informed Student Is a Successful Student (Student Conștientizat, Profesionalism Asigurat)</p>
+                        <p><strong>Funding:</strong> €38,000</p>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Design Engineer</div>
+                        <div class="job-date">Mar 2019 - Sep 2021</div>
+                    </div>
+                    <div class="company">TMD Friction S.R.L., Caransebeș</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Brake pads designing for OE, OES, CV, High Performance and Racing</li>
+                            <li>Business sector: Automotive</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Design Engineer</div>
+                        <div class="job-date">Sep 2015 - Mar 2019</div>
+                    </div>
+                    <div class="company">SPALECK S.R.L., Reșița</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Design and production supervision of vibrating sorting machines, conveyor belt systems, metal structures, frameworks, and casings</li>
+                            <li>Position: Head of Design and Production Planning Office within the Romanian department</li>
+                            <li>Business sector: Machine construction</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Mechanical Engineer</div>
+                        <div class="job-date">Aug 2011 - Sep 2015</div>
+                    </div>
+                    <div class="company">UCM Reșița S.A.</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Mechanical and metallographic testing, supervision of sample preparations</li>
+                            <li>Coordinated a team of five machining operators (CNC/manual cutting and shaping)</li>
+                            <li>Business sector: Physic-chemical laboratory</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Freelancer</div>
+                        <div class="job-date">Oct 2011 - Oct 2012</div>
+                    </div>
+                    <div class="company">RTS Welded Structures S.R.L., Reșița</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>3D modelling, casting simulation and optimization of casting technology</li>
+                            <li>Business sector: Casting steel parts, cast iron and nonferrous alloys</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Metallurgical Technician</div>
+                        <div class="job-date">Jul 2009 - Aug 2011</div>
+                    </div>
+                    <div class="company">UCM Reșița S.A.</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Mechanical and metallographic testing, supervision of sample preparations</li>
+                            <li>Business sector: Physic-chemical laboratory</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="job">
+                    <div class="job-header">
+                        <div class="job-title">Designer Technician</div>
+                        <div class="job-date">Sep 2008 - Jun 2009</div>
+                    </div>
+                    <div class="company">UCM Turnate S.R.L., Reșița</div>
+                    <div class="job-description">
+                        <ul>
+                            <li>Providing technical support to production sectors, the design and verification of casting technology</li>
+                            <li>Business sector: Casting steel parts, cast iron and nonferrous alloys</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Education</h2>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">Postdoctoral Researcher</div>
+                        <div class="education-date">Feb 2021 - Feb 2023</div>
+                    </div>
+                    <div class="university">Babeș-Bolyai University, Faculty of Chemical Engineering</div>
+                    <div class="education-description">
+                        <p><strong>Thesis:</strong> Detection of mechanical defects in chemical installations using artificial intelligence</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">PhD in Mechanical Engineering</div>
+                        <div class="education-date">Oct 2017 - Sep 2020</div>
+                    </div>
+                    <div class="university">Babeș-Bolyai University, Faculty of Chemical Engineering</div>
+                    <div class="education-description">
+                        <p><strong>Thesis:</strong> Research on precision assessment in damage detection using natural frequencies</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">Master's in Aided Design and Manufacturing</div>
+                        <div class="education-date">Oct 2011 - Jul 2013</div>
+                    </div>
+                    <div class="university">"Eftimie Murgu" University, Reșița – Industrial Engineering</div>
+                    <div class="education-description">
+                        <p>Static and dynamic analysis by finite element method / Technology aided design / Planning, programming and production tracking / Modeling and optimization in industrial engineering / Management</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">Engineering Degree</div>
+                        <div class="education-date">Oct 2007 - Jul 2011</div>
+                    </div>
+                    <div class="university">"Eftimie Murgu" University, Reșița – Machines Manufacturing Technology</div>
+                    <div class="education-description">
+                        <p>Mathematics / Mechanics / Machine parts / Mechanisms / Strength of materials / Material science / Technical drawing / Measuring technique and quality assurance / Generation of cutting surfaces / Heat treatment technology / Cold pressing technology / Industrial robots / Computer aided design</p>
+                    </div>
+                </div>
+                
+                <div class="education-item">
+                    <div class="education-header">
+                        <div class="education-title">High School Diploma</div>
+                        <div class="education-date">Sep 2004 - Jul 2007</div>
+                    </div>
+                    <div class="university">Grupul Școlar Industrial "Alexandru Popp", Reșița</div>
+                    <div class="education-description">
+                        <p>Civil construction technician</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Publications</h2>
+                <div class="publication">
+                    Tufisi, C.; Praisach, Z.-I.; Gillich, G.-R.; Bichescu, A.I.; Heler, T.-L. Forward Fall Detection Using Inertial Data and Machine Learning. Applied Sciences, 2024, 14, 10552. https://doi.org/10.3390/app142210552
+                </div>
+            </div>
+            
+            <div class="section">
+                <h2>Additional Information</h2>
+                <h3>Communication Skills</h3>
+                <ul>
+                    <li>Strong communication skills developed during the completion of the PhD thesis, through oral presentations of scientific papers in both English and Romanian</li>
+                    <li>Skills enhanced by team-based project development, participation in scientific conferences, and involvement in funded projects such as Phare programs and youth exchange initiatives</li>
+                </ul>
+                
+                <h3>Organizational/Managerial Skills</h3>
+                <ul>
+                    <li>At SPALECK S.R.L., held the position of Head of Design and Production Planning Office within the Romanian department</li>
+                    <li>At UCM Reșița, coordinated a team of five machining operators (CNC/manual cutting and shaping)</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    
+    <button class="download-btn" onclick="window.print();">Download as PDF</button>
+    
+    <script>
+        // Simple animation for skill bars
+        document.addEventListener('DOMContentLoaded', function() {
+            const skillBars = document.querySelectorAll('.skill-level');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0';
+                setTimeout(() => {
+                    bar.style.width = width;
+                    bar.style.transition = 'width 1s ease-in-out';
+                }, 100);
+            });
+        });
+    </script>
+</body>
+</html>
